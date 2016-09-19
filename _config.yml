@@ -35,9 +35,11 @@ defaults:
             type: posts
         values:
             layout: post
+            author: Thomas Lin Pedersen
     -
         scope:
             path: ""
             type: drafts
         values:
             layout: post
+            author: Thomas Lin Pedersen
