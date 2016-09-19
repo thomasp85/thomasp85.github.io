@@ -1,5 +1,5 @@
-name: Your New Jekyll Site
-description: Blogging about stuffs
+name: Data Imaginist
+description: Visualization, Data Science, and Biology
 meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
 aboutPage: true
@@ -10,15 +10,15 @@ highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 20
 baseurl: /
-domain_name: 'http://yourblog-domain.com'
-google_analytics: 'UA-XXXXXXXX-X'
+domain_name: 'http://www.data-imaginist.com'
+google_analytics: 'UA-84380701-1'
 disqus: false
-disqus_shortname: 'your-disqus-shortname'
+disqus_shortname: 'thomaslinpedersen'
 
 # Details for the RSS feed generator
-url:            'http://your-blog-url.example.com'
-author:         'Your Name'
-authorTwitter:  'YourTwitterUsername'
+url:            'http://www.data-imaginist.com'
+author:         'Thomas Lin Pedersen'
+authorTwitter:  'thomasp85'
 
 permalink:       /:year/:title/
 
