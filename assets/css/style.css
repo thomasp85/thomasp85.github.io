@@ -291,10 +291,14 @@ hr {
 	background: #eee;
 }
 
-span.code { font-family: Inconsolata, Menlo, Monaco, Courier; background-color:#EEE; font-size:10px; }
+span.code, span.highlighter-rouge { 
+	font-family: Inconsolata, Menlo, Monaco, Courier; 
+	background-color:#EEE; 
+	font-size:10px; 
+}
 
 pre	{
-	font-family:Menlo, Monaco, Courier;
+	font-family: Inconsolata, Menlo, Monaco, Courier;
 	white-space:pre-wrap;
 	/*border: 1px solid #ddd;*/
 	padding:20px;
@@ -303,8 +307,8 @@ pre	{
 	overflow:auto;
 	border-radius: 3px;
 	background: #272b2d;
-	  font-family: 'Source Code Pro',Menlo,monospace;
-	  font-size: 13px;
+	  font-family: Inconsolata, 'Source Code Pro',Menlo,monospace;
+	  font-size: 10px;
 	  line-height: 1.5em;
 	  font-weight: 500;
 	color: #d0d4d7;
