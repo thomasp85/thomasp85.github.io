@@ -181,7 +181,7 @@ curriedfun(1)(2)(3)
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 6
 {% endhighlight %}
 
 
@@ -195,7 +195,7 @@ testfun %<!% 1 %<!% 2 %<!% 3
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 6
 {% endhighlight %}
 
 
@@ -209,7 +209,7 @@ testfun %<!% 1 %<% 2 %<% 3
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 6
 {% endhighlight %}
 
 As with the partial application functionality the strict currying retains
@@ -260,7 +260,7 @@ testfun2()
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 14
 {% endhighlight %}
 
 
@@ -272,7 +272,7 @@ testfun3()
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 14
 {% endhighlight %}
 
 
@@ -285,7 +285,7 @@ testfun2(y = 20)
 
 
 {% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
+#> [1] 24
 {% endhighlight %}
 
 
@@ -340,12 +340,12 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 
 {% highlight text %}
 #> Unit: microseconds
-#>                      expr    min      lq      mean median       uq
-#>  mean(data, na.rm = TRUE) 15.821 20.3885  28.79346 28.122  32.5560
-#>               meanP(data) 60.499 74.0015 106.66548 87.856 102.4925
-#>       max neval
-#>    75.378   100
-#>  1557.202   100
+#>                      expr    min      lq     mean  median      uq      max
+#>  mean(data, na.rm = TRUE) 15.671 24.7625 40.73231 26.1705 26.7995 1530.466
+#>               meanP(data) 62.785 76.2485 82.29457 78.5900 81.1495  226.588
+#>  neval
+#>    100
+#>    100
 {% endhighlight %}
 
 
@@ -361,11 +361,11 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 {% highlight text %}
 #> Unit: milliseconds
 #>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.24632 11.99711 22.15007 13.15106 15.24434
-#>               meanP(data) 12.34325 13.06938 25.07644 14.25633 50.49370
+#>  mean(data, na.rm = TRUE) 10.44723 11.70102 18.69839 12.59118 14.10272
+#>               meanP(data) 12.30965 13.61801 26.72090 14.60834 49.59748
 #>        max neval
-#>   87.46089   100
-#>  100.89145   100
+#>   55.20231   100
+#>  101.33028   100
 {% endhighlight %}
 
 Happy coding!
