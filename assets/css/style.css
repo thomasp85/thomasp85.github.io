@@ -301,11 +301,11 @@ pre	{
 	font-family: Inconsolata, Menlo, Monaco, Courier;
 	white-space:pre-wrap;
 	/*border: 1px solid #ddd;*/
-	padding:20px;
+	padding:10px;
 	background-color:#fdfdfd;
 	/*font-size:14px;*/
 	overflow:auto;
-	border-radius: 3px;
+	border-radius: 6px;
 	background: #272b2d;
 	  font-family: Inconsolata, 'Source Code Pro',Menlo,monospace;
 	  font-size: 12px;
