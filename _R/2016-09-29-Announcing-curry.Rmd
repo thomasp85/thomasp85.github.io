@@ -5,7 +5,15 @@ tags: [R, package, announcement]
 categories: [R]
 ---
 
-
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+library(curry)
+Sys.setenv(LANG = "en")
+```
 
 # curry
 
@@ -29,75 +37,29 @@ Currying is the reduction of the arity of a function by fixing the first
 argument, returning a new function lacking this ([no it's not - read on or click 
 here](#real-currying)).
 
-
-{% highlight r %}
+```{r}
 # Equivalent to curry(`+`, 5)
 add_5 <- `+` %<% 5
 add_5(10)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> [1] 15
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 # ellipsis are retained when currying
 bind_5 <- cbind %<% 5
 bind_5(1:10)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#>       [,1] [,2]
-#>  [1,]    5    1
-#>  [2,]    5    2
-#>  [3,]    5    3
-#>  [4,]    5    4
-#>  [5,]    5    5
-#>  [6,]    5    6
-#>  [7,]    5    7
-#>  [8,]    5    8
-#>  [9,]    5    9
-#> [10,]    5   10
-{% endhighlight %}
+```
 
 ### Tail currying
 Tail currying is just like currying except it reduces the arity of the function
 from the other end by fixing the last argument.
 
-
-{% highlight r %}
+```{r}
 # Equivalent to tail_curry(`/`, 5)
 divide_by_5 <- `/` %-<% 5
 divide_by_5(10)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> [1] 2
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 no_factors <- data.frame %-<% FALSE
 df <- no_factors(x = letters[1:5])
 class(df$x)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> [1] "character"
-{% endhighlight %}
+```
 
 ### Partial function application
 When the argument you wish to fix is not in either end of the argument list it
@@ -105,49 +67,20 @@ is necessary to use a more generalised approach. Using `%><%` (or `partial()`)
 it is possible to fix any (and multiple) arguments in a function using a list of
 values to fix.
 
-
-{% highlight r %}
+```{r}
 dummy_lengths <- vapply %><% list(FUN = length, FUN.VALUE = integer(1))
 test_list <- list(a = 1:5, b = 1:10)
 dummy_lengths(test_list)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#>  a  b 
-#>  5 10
-{% endhighlight %}
+```
 
 Other efforts in this has the drawback of returning a new function with just an
 ellipsis, making argument checks and autocomplete impossible. With `curry` the
 returned functions retains named arguments (minus the fixed ones).
 
-
-{% highlight r %}
+```{r}
 args(no_factors)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
-#>     fix.empty.names = TRUE) 
-#> NULL
-{% endhighlight %}
-
-
-
-{% highlight r %}
 args(dummy_lengths)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> function (X, ..., USE.NAMES = TRUE) 
-#> NULL
-{% endhighlight %}
+```
 
 ### Real currying
 The above uses a very loose (incorrect) definition of currying. The correct
@@ -157,76 +90,38 @@ return a new function accepting the second argument of the original function and
 so on. Once all arguments of the original function has been consumed it 
 evaluates the call and returns the result. Thus:
 
-
-{% highlight r %}
+```{r, eval=FALSE}
 # Correct currying
 foo(arg1)(arg2)(arg3)
 
 # Incorrect currying
 foo(arg1)(arg2, arg3)
-{% endhighlight %}
+```
 
 True currying is less useful in R as it does not play nice with function 
 containing `...` as the argument list will never be consumed. Still, it is 
 available in `curry` using the `Curry()` function or the `%<!%` operator:
 
-
-{% highlight r %}
+```{r}
 testfun <- function(x = 10, y, z) {
   x + y + z
 }
 curriedfun <- Curry(testfun)
 curriedfun(1)(2)(3)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 # Using the operator
 testfun %<!% 1 %<!% 2 %<!% 3
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 # The strict operator is only required for the first call
 testfun %<!% 1 %<% 2 %<% 3
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
+```
 
 As with the partial application functionality the strict currying retains
 argument names and defaults at each step of the currying sequence:
 
-
-{% highlight r %}
+```{r}
 args(curriedfun)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> function (x = 10) 
-#> NULL
-{% endhighlight %}
+```
 
 ### Weak partial function application
 The last functionality provided by `curry` is a *"weak"* partial function 
@@ -236,89 +131,36 @@ but if the defaulted arguments are ignored it will be equivalent to a partial
 application. Defaults can be set or changed using the `set_defaults()` function
 or the `%<?%` operator:
 
-
-{% highlight r %}
+```{r, error = TRUE}
 testfun <- function(x = 1, y = 2, z = 3) {
   x + y + z
 }
 testfun()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> [1] 6
-{% endhighlight %}
-
-
-
-{% highlight r %}
 testfun2 <- testfun %<?% list(y = 10)
 testfun3 <- testfun %><% list(y = 10)
 testfun2()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
-
-
-
-{% highlight r %}
 testfun3()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 testfun2(y = 20)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in do.call("testfun", args): could not find function "testfun"
-{% endhighlight %}
-
-
-
-{% highlight r %}
 testfun3(y = 20)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Error in testfun3(y = 20): unused argument (y = 20)
-{% endhighlight %}
+```
 
 
 ## Installation
 `curry` can be installed from CRAN:
 
-
-{% highlight r %}
+```{r, eval=FALSE}
 install.packages('curry')
-{% endhighlight %}
+```
 
 but for the latest and greatest use GitHub:
 
-
-{% highlight r %}
+```{r, eval=FALSE}
 if (!require(devtools)) {
     install.packages(devtools)
 }
 devtools::install_github('thomasp85/curry')
-{% endhighlight %}
+```
 
 ## Performance
 
@@ -328,45 +170,15 @@ does not add additional overhead). depending on the runtime of the function the
 overhead can seem large but as the complexity of the call increases, the effect 
 of the overhead will decrease:
 
-
-{% highlight r %}
+```{r}
 library(microbenchmark)
 meanP <- mean %><% list(na.rm = TRUE)
 
 data <-  sample(1000)
 microbenchmark(mean(data, na.rm = TRUE), meanP(data))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Unit: microseconds
-#>                      expr    min      lq     mean median      uq      max
-#>  mean(data, na.rm = TRUE) 15.621 25.0345 42.06097 26.006 26.7985 1482.054
-#>               meanP(data) 61.415 75.2360 77.79966 76.603 78.3985  124.892
-#>  neval
-#>    100
-#>    100
-{% endhighlight %}
-
-
-
-{% highlight r %}
 
 data <- sample(1e6)
 microbenchmark(mean(data, na.rm = TRUE), meanP(data))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-#> Unit: milliseconds
-#>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.50481 11.76041 19.89920 12.80406 14.12728
-#>               meanP(data) 12.21522 12.79432 24.39761 14.15322 49.69233
-#>       max neval
-#>  53.23827   100
-#>  99.42165   100
-{% endhighlight %}
+```
 
 Happy coding!
