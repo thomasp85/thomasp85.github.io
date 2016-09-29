@@ -340,9 +340,9 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 
 {% highlight text %}
 #> Unit: microseconds
-#>                      expr    min      lq     mean  median      uq      max
-#>  mean(data, na.rm = TRUE) 15.671 24.7625 40.73231 26.1705 26.7995 1530.466
-#>               meanP(data) 62.785 76.2485 82.29457 78.5900 81.1495  226.588
+#>                      expr    min      lq     mean median     uq      max
+#>  mean(data, na.rm = TRUE) 19.413 25.1715 41.54582 25.774 26.629 1469.530
+#>               meanP(data) 47.839 53.3650 60.04029 54.163 56.946  345.125
 #>  neval
 #>    100
 #>    100
@@ -361,11 +361,11 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 {% highlight text %}
 #> Unit: milliseconds
 #>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.44723 11.70102 18.69839 12.59118 14.10272
-#>               meanP(data) 12.30965 13.61801 26.72090 14.60834 49.59748
-#>        max neval
-#>   55.20231   100
-#>  101.33028   100
+#>  mean(data, na.rm = TRUE) 10.63121 12.16236 22.49142 13.09324 22.38766
+#>               meanP(data) 12.23315 13.67030 23.88343 14.58400 18.67291
+#>       max neval
+#>  57.47679   100
+#>  91.36881   100
 {% endhighlight %}
 
 Happy coding!
