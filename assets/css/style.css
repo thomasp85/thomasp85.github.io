@@ -291,7 +291,7 @@ hr {
 	background: #eee;
 }
 
-span.code, span.highlighter-rouge { 
+span.code, code.highlighter-rouge { 
 	font-family: Inconsolata, Menlo, Monaco, Courier; 
 	background-color:#EEE; 
 	font-size:10px; 
@@ -308,7 +308,7 @@ pre	{
 	border-radius: 3px;
 	background: #272b2d;
 	  font-family: Inconsolata, 'Source Code Pro',Menlo,monospace;
-	  font-size: 10px;
+	  font-size: 12px;
 	  line-height: 1.5em;
 	  font-weight: 500;
 	color: #d0d4d7;

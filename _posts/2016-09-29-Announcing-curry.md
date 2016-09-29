@@ -7,8 +7,6 @@ categories: [R]
 
 
 
-# curry
-
 I am pleased to announce the release of `curry` - a small package I've developed 
 as part of improving my meta-programming skills. `curry` is yet another attempt 
 at providing a native currying/partial application mechanism in R. Other 
@@ -341,12 +339,12 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 
 {% highlight text %}
 #> Unit: microseconds
-#>                      expr    min      lq     mean median      uq      max
-#>  mean(data, na.rm = TRUE) 15.621 25.0345 42.06097 26.006 26.7985 1482.054
-#>               meanP(data) 61.415 75.2360 77.79966 76.603 78.3985  124.892
-#>  neval
-#>    100
-#>    100
+#>                      expr    min      lq      mean  median      uq
+#>  mean(data, na.rm = TRUE) 15.867 21.0775  26.95604 28.4145 30.8590
+#>               meanP(data) 61.474 76.8480 101.56067 86.1620 92.1305
+#>       max neval
+#>    52.100   100
+#>  1531.636   100
 {% endhighlight %}
 
 
@@ -362,11 +360,11 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 {% highlight text %}
 #> Unit: milliseconds
 #>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.50481 11.76041 19.89920 12.80406 14.12728
-#>               meanP(data) 12.21522 12.79432 24.39761 14.15322 49.69233
+#>  mean(data, na.rm = TRUE) 10.28008 11.76435 18.93964 12.15770 13.98587
+#>               meanP(data) 12.42514 13.56954 25.53669 14.22797 50.61040
 #>       max neval
-#>  53.23827   100
-#>  99.42165   100
+#>  53.39197   100
+#>  98.23340   100
 {% endhighlight %}
 
 Happy coding!

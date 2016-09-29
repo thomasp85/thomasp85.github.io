@@ -15,8 +15,6 @@ library(curry)
 Sys.setenv(LANG = "en")
 ```
 
-# curry
-
 I am pleased to announce the release of `curry` - a small package I've developed 
 as part of improving my meta-programming skills. `curry` is yet another attempt 
 at providing a native currying/partial application mechanism in R. Other 
