@@ -20,7 +20,7 @@ for partial application: `%<%` (`curry()`), `%-<%` (`tail_curry()`), and `%><%`
 (`partial()`), as well as a true currying operator (`%<!%`) and a *"weak partial 
 application"* (`%<?%`) - read on to see the differences.
 
-## Example
+## Usage
 
 ### Currying
 Currying is the reduction of the arity of a function by fixing the first 
@@ -339,12 +339,12 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 
 {% highlight text %}
 #> Unit: microseconds
-#>                      expr    min      lq      mean  median      uq
-#>  mean(data, na.rm = TRUE) 15.867 21.0775  26.95604 28.4145 30.8590
-#>               meanP(data) 61.474 76.8480 101.56067 86.1620 92.1305
-#>       max neval
-#>    52.100   100
-#>  1531.636   100
+#>                      expr    min      lq     mean  median      uq      max
+#>  mean(data, na.rm = TRUE) 15.292 17.5380 43.69248 25.8065 26.7135 1896.909
+#>               meanP(data) 61.387 74.7395 77.71638 76.4920 79.7625  135.168
+#>  neval
+#>    100
+#>    100
 {% endhighlight %}
 
 
@@ -360,11 +360,11 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 {% highlight text %}
 #> Unit: milliseconds
 #>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.28008 11.76435 18.93964 12.15770 13.98587
-#>               meanP(data) 12.42514 13.56954 25.53669 14.22797 50.61040
+#>  mean(data, na.rm = TRUE) 10.30448 11.69886 18.75962 12.02356 13.55414
+#>               meanP(data) 12.05258 12.58381 22.47561 13.80140 15.55452
 #>       max neval
-#>  53.39197   100
-#>  98.23340   100
+#>  56.51212   100
+#>  91.92981   100
 {% endhighlight %}
 
 Happy coding!
