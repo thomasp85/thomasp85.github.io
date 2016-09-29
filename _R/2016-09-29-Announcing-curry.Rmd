@@ -28,7 +28,7 @@ for partial application: `%<%` (`curry()`), `%-<%` (`tail_curry()`), and `%><%`
 (`partial()`), as well as a true currying operator (`%<!%`) and a *"weak partial 
 application"* (`%<?%`) - read on to see the differences.
 
-## Example
+## Usage
 
 ### Currying
 Currying is the reduction of the arity of a function by fixing the first 
