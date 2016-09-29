@@ -1,106 +1,136 @@
-/*
-  IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
-*/
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  /*padding: 0.5em;*/
-  background: #272b2d;
-  color: #d0d0d0;
-  -webkit-text-size-adjust: none;
+.highlight code, .highlight pre {
+color:#fdce93;
+background-color:#3f3f3f;
 }
 
-.hljs-shebang,
-.hljs-comment {
-  color: #777279;
+.highlight .hll {
+background-color:#222;
 }
 
-.hljs-keyword,
-.hljs-tag,
-.tex .hljs-command,
-.hljs-request,
-.hljs-status,
-.clojure .hljs-attribute {
-  color: #ebde68;
+.highlight .err {
+color:#e37170;
+background-color:#3d3535;
 }
 
-.hljs-sub .hljs-keyword,
-.method,
-.hljs-list .hljs-title,
-.nginx .hljs-title {
-  color: #ffffb6;
+.highlight .k {
+color:#f0dfaf;
 }
 
-.hljs-string,
-.hljs-tag .hljs-value,
-.hljs-cdata,
-.hljs-filter .hljs-argument,
-.hljs-attr_selector,
-.apache .hljs-cbracket,
-.hljs-date,
-.coffeescript .hljs-attribute {
-  color: #c1ef65;
+.highlight .p {
+color:#41706f;
 }
 
-.hljs-subst {
-  color: #daefa3;
+.highlight .cs {
+color:#cd0000;
+font-weight:700;
 }
 
-.hljs-regexp {
-  color: #e9c062;
+.highlight .gd {
+color:#cd0000;
 }
 
-.hljs-title,
-.hljs-sub .hljs-identifier,
-.hljs-pi,
-.hljs-decorator,
-.tex .hljs-special,
-.hljs-type,
-.hljs-constant,
-.smalltalk .hljs-class,
-.hljs-doctag,
-.nginx .hljs-built_in {
-  color: #c1ef65;
+.highlight .ge {
+color:#ccc;
+font-style:italic;
 }
 
-.hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
-.hljs-number,
-.hljs-variable,
-.vbscript,
-.hljs-literal,
-.hljs-name {
-  color: #77bcd7;
+.highlight .gr {
+color:red;
 }
 
-.css .hljs-tag {
-  color: #96cbfe;
+.highlight .go {
+color:gray;
 }
 
-.css .hljs-rule .hljs-property,
-.css .hljs-id {
-  color: #ffffb6;
+.highlight .gs {
+color:#ccc;
+font-weight:700;
 }
 
-.css .hljs-class {
-  color: #fff;
+.highlight .gu {
+color:purple;
+font-weight:700;
 }
 
-.hljs-hexcolor {
-  color: #c6c5fe;
+.highlight .gt {
+color:#0040D0;
 }
 
-.hljs-number {
-  color:#77bcd7;
+.highlight .kc {
+color:#dca3a3;
 }
 
-.coffeescript .javascript,
-.javascript .xml,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata {
-  opacity: 0.7;
+.highlight .kd {
+color:#ffff86;
+}
+
+.highlight .kn {
+color:#dfaf8f;
+font-weight:700;
+}
+
+.highlight .kp {
+color:#cdcf99;
+}
+
+.highlight .kr {
+color:#cdcd00;
+}
+
+.highlight .ni {
+color:#c28182;
+}
+
+.highlight .ne {
+color:#c3bf9f;
+font-weight:700;
+}
+
+.highlight .nn {
+color:#8fbede;
+}
+
+.highlight .vi {
+color:#ffffc7;
+}
+
+.highlight .c,.preview-zenburn .highlight .g,.preview-zenburn .highlight .cm,.preview-zenburn .highlight .cp,.preview-zenburn .highlight .c1 {
+color:#7f9f7f;
+}
+
+.highlight .l,.preview-zenburn .highlight .x,.preview-zenburn .highlight .no,.preview-zenburn .highlight .nd,.preview-zenburn .highlight .nl,.preview-zenburn .highlight .nx,.preview-zenburn .highlight .py,.preview-zenburn .highlight .w {
+color:#ccc;
+}
+
+.highlight .n,.preview-zenburn .highlight .nv,.preview-zenburn .highlight .vg {
+color:#dcdccc;
+}
+
+.highlight .o,.preview-zenburn .highlight .ow {
+color:#f0efd0;
+}
+
+.highlight .gh,.preview-zenburn .highlight .gp {
+color:#dcdccc;
+font-weight:700;
+}
+
+.highlight .gi,.preview-zenburn .highlight .kt {
+color:#00cd00;
+}
+
+.highlight .ld,.preview-zenburn .highlight .s,.preview-zenburn .highlight .sb,.preview-zenburn .highlight .sc,.preview-zenburn .highlight .sd,.preview-zenburn .highlight .s2,.preview-zenburn .highlight .se,.preview-zenburn .highlight .sh,.preview-zenburn .highlight .si,.preview-zenburn .highlight .sx,.preview-zenburn .highlight .sr,.preview-zenburn .highlight .s1,.preview-zenburn .highlight .ss {
+color:#cc9393;
+}
+
+.highlight .m,.preview-zenburn .highlight .mf,.preview-zenburn .highlight .mh,.preview-zenburn .highlight .mi,.preview-zenburn .highlight .mo,.preview-zenburn .highlight .il {
+color:#8cd0d3;
+}
+
+.highlight .na,.preview-zenburn .highlight .nt {
+color:#9ac39f;
+}
+
+.highlight .nb,.preview-zenburn .highlight .nc,.preview-zenburn .highlight .nf,.preview-zenburn .highlight .bp,.preview-zenburn .highlight .vc {
+color:#efef8f;
 }
