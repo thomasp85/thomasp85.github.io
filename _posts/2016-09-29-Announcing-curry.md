@@ -16,7 +16,7 @@ Example
 
 Currying is the reduction of the arity of a function by fixing the first argument, returning a new function lacking this ([no it's not - read on or click here](#real-currying)).
 
-``` r
+```r
 # Equivalent to curry(`+`, 5)
 add_5 <- `+` %<% 5
 add_5(10)
@@ -42,7 +42,7 @@ bind_5(1:10)
 
 Tail currying is just like currying except it reduces the arity of the function from the other end by fixing the last argument.
 
-``` r
+```r
 # Equivalent to tail_curry(`/`, 5)
 divide_by_5 <- `/` %-<% 5
 divide_by_5(10)
@@ -58,7 +58,7 @@ class(df$x)
 
 When the argument you wish to fix is not in either end of the argument list it is necessary to use a more generalised approach. Using `%><%` (or `partial()`) it is possible to fix any (and multiple) arguments in a function using a list of values to fix.
 
-``` r
+```r
 dummy_lengths <- vapply %><% list(FUN = length, FUN.VALUE = integer(1))
 test_list <- list(a = 1:5, b = 1:10)
 dummy_lengths(test_list)
@@ -68,7 +68,7 @@ dummy_lengths(test_list)
 
 Other efforts in this has the drawback of returning a new function with just an ellipsis, making argument checks and autocomplete impossible. With `curry` the returned functions retains named arguments (minus the fixed ones).
 
-``` r
+```r
 args(no_factors)
 #> function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, 
 #>     fix.empty.names = TRUE) 
@@ -82,7 +82,7 @@ args(dummy_lengths)
 
 The above uses a very loose (incorrect) definition of currying. The correct definition is that currying a function returns a function taking a single argument (the first from the original function). Calling a curried function will return a new function accepting the second argument of the original function and so on. Once all arguments of the original function has been consumed it evaluates the call and returns the result. Thus:
 
-``` r
+```r
 # Correct currying
 foo(arg1)(arg2)(arg3)
 
@@ -92,7 +92,7 @@ foo(arg1)(arg2, arg3)
 
 True currying is less useful in R as it does not play nice with function containing `...` as the argument list will never be consumed. Still, it is available in `curry` using the `Curry()` function or the `%<!%` operator:
 
-``` r
+```r
 testfun <- function(x = 10, y, z) {
   x + y + z
 }
@@ -111,7 +111,7 @@ testfun %<!% 1 %<% 2 %<% 3
 
 As with the partial application functionality the strict currying retains argument names and defaults at each step of the currying sequence:
 
-``` r
+```r
 args(curriedfun)
 #> function (x = 10) 
 #> NULL
@@ -121,7 +121,7 @@ args(curriedfun)
 
 The last functionality provided by `curry` is a *"weak"* partial function application in the sense that it sets (or changes) argument defaults. Thus, compared to partial application it returns a function with the same arguments, but if the defaulted arguments are ignored it will be equivalent to a partial application. Defaults can be set or changed using the `set_defaults()` function or the `%<?%` operator:
 
-``` r
+```r
 testfun <- function(x = 1, y = 2, z = 3) {
   x + y + z
 }
@@ -145,13 +145,13 @@ Installation
 
 `curry` can be installed from CRAN:
 
-``` r
+```r
 install.packages('curry')
 ```
 
 but for the latest and greatest use GitHub:
 
-``` r
+```r
 if (!require(devtools)) {
     install.packages(devtools)
 }
