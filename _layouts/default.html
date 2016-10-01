@@ -14,13 +14,13 @@
   {% else %}
     <meta name="twitter:card" content="summary">
   {% endif %}
-  
+
   {% if page.img.thumb %}
     <meta property="og:image" content="{{ site.url }}/{{ page.img.thumb }}" />
     <meta name="twitter:image:src" content="{{ site.url }}/{{ page.img.thumb }}">
   {% else %}
-    <meta property="og:image" content="{{ site.url }}/assets/images/logo.png" />
-    <meta name="twitter:image:src" content="{{ site.url }}/assets/images/logo.png">
+    <meta property="og:image" content="{{ site.url }}/assets/images/logo_opaque.png" />
+    <meta name="twitter:image:src" content="{{ site.url }}/assets/images/logo_opaque.png">
   {% endif %}
   <meta content="{{ site.title }}" property="og:site_name">
 
