@@ -29,9 +29,7 @@ defaults:
             type: pages
         values:
             layout: default
-            img:
-                -
-                    thumb: 'assets/images/logo.png'
+            large_thumb: false
     -
         scope:
             path: "" # empty string for all files
@@ -39,9 +37,7 @@ defaults:
         values:
             layout: post
             author: Thomas Lin Pedersen
-            img:
-                -
-                    thumb: 'assets/images/logo.png'
+            large_thumb: false
     -
         scope:
             path: ""
@@ -49,6 +45,4 @@ defaults:
         values:
             layout: post
             author: Thomas Lin Pedersen
-            img:
-                -
-                    thumb: 'assets/images/logo.png'
+            large_thumb: false
