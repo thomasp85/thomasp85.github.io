@@ -1,5 +1,11 @@
 _site
 .sass-cache
 .jekyll-metadata
-
 *.DS_Store
+.Rproj.user
+thomasp85.github.io.Rproj
+_R/*.html
+
+.DS_Store
+
+.DS_Store

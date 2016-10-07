@@ -1,7 +1,7 @@
 ---
 title: "Announcing curry: Operator based currying and partial application"
 description: "curry is a new package just released on CRAN, that allows you to perform currying and partial application of functions using a range of operators."
-tags: [R, package, announcement]
+tags: [R, package, announcement, curry]
 categories: [R]
 ---
 
@@ -340,9 +340,9 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 
 {% highlight text %}
 #> Unit: microseconds
-#>                      expr    min      lq     mean median     uq      max
-#>  mean(data, na.rm = TRUE) 19.413 25.1715 41.54582 25.774 26.629 1469.530
-#>               meanP(data) 47.839 53.3650 60.04029 54.163 56.946  345.125
+#>                      expr    min      lq     mean  median     uq      max
+#>  mean(data, na.rm = TRUE) 16.039 25.6585 40.60812 26.2140 26.606 1461.897
+#>               meanP(data) 40.969 54.5685 56.56638 55.6465 57.477  104.947
 #>  neval
 #>    100
 #>    100
@@ -361,11 +361,11 @@ microbenchmark(mean(data, na.rm = TRUE), meanP(data))
 {% highlight text %}
 #> Unit: milliseconds
 #>                      expr      min       lq     mean   median       uq
-#>  mean(data, na.rm = TRUE) 10.63121 12.16236 22.49142 13.09324 22.38766
-#>               meanP(data) 12.23315 13.67030 23.88343 14.58400 18.67291
-#>       max neval
-#>  57.47679   100
-#>  91.36881   100
+#>  mean(data, na.rm = TRUE) 10.45805 11.77362 19.93268 12.20861 14.10476
+#>               meanP(data) 12.27619 12.87454 23.51132 13.96323 32.44742
+#>      max neval
+#>  53.6542   100
+#>  98.3925   100
 {% endhighlight %}
 
 Happy coding!
