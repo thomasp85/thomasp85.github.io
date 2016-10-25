@@ -9,3 +9,11 @@ _R/*.html
 .DS_Store
 
 .DS_Store
+
+Gemfile.lock
+
+.Rhistory
+
+.DS_Store
+
+.DS_Store
