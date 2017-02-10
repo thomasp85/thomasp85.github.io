@@ -56,10 +56,10 @@ layout has been calculated.
 ## Nodes
 Nodes in a network are the entities that are connected. Sometimes these are also
 referred to as vertices, but `ggraph` has opted for this nomenclature and use it
-consistently. While the nodes in a graph are the abstract concepts of enteties, 
+consistently. While the nodes in a graph are the abstract concepts of entities, 
 and the layout is their physical placement, the node geoms is the visual 
 manifestation of the entities. Conceptually one can simply think of it in terms
-of a scatterplot --- the layout provides the x, and y coordinates and these can
+of a scatter plot --- the layout provides the x, and y coordinates and these can
 be used to draw nodes in different ways in the plotting window. Actually, due
 to the design of `ggraph` the standard *scatterplot-like* geoms from `ggplot2`
 can be used directly for plotting nodes:
@@ -173,7 +173,7 @@ l + geom_edge_diagonal(aes(width = ..index.., alpha = ..index..), lineend = 'rou
 ```
 
 More node geoms are sure to appear in `ggraph` with time but they will generally
-be quite easily comprehensible due to their strong assemblence to the standard
+be quite easily comprehensible due to their strong assemblance to the standard
 `ggplot2` geoms. After all it is just points on a plane...
 
 ### More to come
