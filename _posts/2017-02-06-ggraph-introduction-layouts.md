@@ -1,7 +1,7 @@
 ---
 title: "Introduction to ggraph: Layouts"
 description: "In the first post in a series of ggraph introductions I will talk about how ggraph specifies and uses layouts"
-tags: [R, ggraph visualization]
+tags: [R, ggraph, visualization]
 categories: [R]
 large_thumb: true
 img:
