@@ -346,5 +346,5 @@ been effective in describing the use of layouts and illustrating how they can
 have a very profound effect on the resulting plot. Stay tuned for more...
 
 ### Update
-* [ggraph Introduction: Nodes]({% post_url 2017-02-06-ggraph-introduction-nodes %})
+* [ggraph Introduction: Nodes]({% post_url 2017-02-10-ggraph-introduction-nodes %})
 has been published
