@@ -74,7 +74,7 @@ decided to draw the arcs with an opacity gradient from start to end:
 ```{r}
 D <- ggraph(d_graph, layout = 'linear') +
     geom_edge_arc(aes(x=y, y=x, xend=yend, yend=xend, alpha = ..index..,
-                      color = node2.class), gEdges(nodePar = 'class'))
+                      color = node2.class))
 D
 ```
 
@@ -91,7 +91,7 @@ are ever to use this feature, be thankful that I had to draw a D).
 ```{r}
 D <- ggraph(d_graph, layout = 'linear') +
     geom_edge_arc(aes(x=y, y=x, xend=yend, yend=xend, alpha = ..index..,
-                      color = node2.class), gEdges(nodePar = 'class'),
+                      color = node2.class), 
                   fold = TRUE)
 D
 ```
@@ -107,7 +107,7 @@ theme_empty <- theme_void() +
 
 D <- ggraph(d_graph, layout = 'linear') +
     geom_edge_arc(aes(x=y, y=x, xend=yend, yend=xend, alpha = ..index..,
-                      color = node2.class), gEdges(nodePar = 'class'),
+                      color = node2.class),
                   fold = T, edge_width = 1) +
     scale_y_continuous(expand = c(0.03,0)) +
     theme_empty
@@ -133,7 +133,7 @@ class hierarchy, so lets get right to it:
 # Create an igraph object from the flare data
 flareGraph <- graph_from_data_frame(flare$edges, vertices = flare$vertices)
 # Set the class of each node to the name of their topmost-1 parent
-flareGraph <- treeApply(flareGraph, function(node, parent, depth, tree) {
+flareGraph <- tree_apply(flareGraph, function(node, parent, depth, tree) {
     tree <- set_vertex_attr(tree, 'depth', node, depth)
     if (depth == 1) {
         tree <- set_vertex_attr(tree, 'class', node, V(tree)$shortName[node])
@@ -150,8 +150,8 @@ With our graph at hand we can draw the stem:
 
 ```{r}
 i_stem <- ggraph(flareGraph, 'treemap', weight = 'size', width = 1, height = 3) +
-    geom_treemap(aes(filter = leaf, fill = class, alpha = depth), colour = NA) +
-    geom_treemap(aes(filter = depth != 0, size = depth), fill = NA) +
+    geom_node_tile(aes(filter = leaf, fill = class, alpha = depth), colour = NA) +
+    geom_node_tile(aes(filter = depth != 0, size = depth), fill = NA) +
     scale_alpha(range = c(1, 0.3), guide = 'none') +
     scale_size(range = c(1.5, 0.4), guide = 'none') +
     theme_empty
@@ -173,7 +173,7 @@ some very pretty plots.
 importFrom <- match(flare$imports$from, flare$vertices$name)
 importTo <- match(flare$imports$to, flare$vertices$name)
 i_dot <- ggraph(flareGraph, 'dendrogram', circular = TRUE) +
-    geom_edge_bundle(aes(colour = ..index..), data = gCon(importFrom, importTo),
+    geom_conn_bundle(aes(colour = ..index..), data = get_con(importFrom, importTo),
                      edge_alpha = 0.25) +
     geom_node_point(aes(filter = leaf, colour = class)) +
     coord_fixed() +

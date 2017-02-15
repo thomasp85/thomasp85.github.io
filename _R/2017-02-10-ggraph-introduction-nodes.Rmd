@@ -78,7 +78,7 @@ a `data.frame` of node positions and metadata and this is used as the default
 plot data:
 
 ```{r}
-head(createLayout(gr, layout = 'kk'))
+head(create_layout(gr, layout = 'kk'))
 ```
 
 ### `geom_node_*()`

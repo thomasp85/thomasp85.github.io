@@ -66,7 +66,7 @@ treemaps. One of the driving factors behind `ggraph` has been to develop an API
 where any type of visual representation of graph structures is supported. In 
 order to achieve this we first need a flexible way of defining the layout...
 
-### `ggraph()` and `createLayout()`
+### `ggraph()` and `create_layout()`
 As the layout is a global specification of the spatial position of the nodes it
 spans all layers in the plot and should thus be defined outside of calls to 
 geoms or stats. In `ggraph` it is often done as part of the plot initialization
@@ -106,18 +106,18 @@ ggraph(graph, layout = 'kk', maxiter = 100) +
 ```
 
 In addition to specifying the layout during plot creation it can also happen 
-separately using `createLayout()`. This function takes the same arguments as 
+separately using `create_layout()`. This function takes the same arguments as 
 `ggraph()` but returns a `layout_ggraph` object that can later be used in place
 of a graph structure in ggraph call:
 
 ```{r}
-layout <- createLayout(graph, layout = 'drl')
+layout <- create_layout(graph, layout = 'drl')
 ggraph(layout) + 
     geom_edge_link(aes(colour = factor(year))) + 
     geom_node_point()
 ```
 
-Examining the return of `createLayout()` we see that it is really just a 
+Examining the return of `create_layout()` we see that it is really just a 
 `data.frame` of node positions and (possible) attributes. Furthermore the 
 original graph object along with other relevant information is passed along as
 attributes:
@@ -142,7 +142,7 @@ is wish for support for additional classes this can be achieved by adding a set
 of specific methods to the class. The `ggraph` source code should be your guide
 in this but I will briefly describe the methods below:
 
-#### `createLayout.myclass()`
+#### `create_layout.myclass()`
 This method is responsible for taking a graph structure and returning a 
 `layout_ggraph` object. The object is just a `data.frame` with the correct class
 and attributes added. The class should be 
@@ -154,7 +154,7 @@ information about the nodes this should be added to the `data.frame` as columns
 so these are accessible during plotting.
 
 #### `getEdges.layout_myclass()`
-This method takes the return value of `createLayout.myclass()` and returns the
+This method takes the return value of `create_layout.myclass()` and returns the
 edges of the graph structure. The return value should be in the form of an edge
 list with a `to` and `from` column giving the indexes of the terminal nodes of
 the edge. Furthermore, it must contain a `circular` column, again indicating
@@ -171,7 +171,7 @@ for `geom_conn_*` layers.
 Any type of layout algorithm that needs to be available to this class should be
 defined as a separate `layout_myclass_layoutname()` function. This function will
 be called when `'layoutname'` is used in the `layout` argument in `ggraph()` or
-`createLayout()`. At a minimum each new class should have a 
+`create_layout()`. At a minimum each new class should have a 
 `layout_myclass_auto()` defined.
 
 ## Layouts abound
@@ -241,7 +241,7 @@ igraph_layouts <- c('star', 'circle', 'gem', 'dh', 'graphopt', 'grid', 'mds',
 igraph_layouts <- sample(igraph_layouts)
 graph <- graph_from_data_frame(highschool)
 V(graph)$degree <- degree(graph)
-layouts <- lapply(igraph_layouts, createLayout, graph = graph)
+layouts <- lapply(igraph_layouts, create_layout, graph = graph)
 layouts_tween <- tween_states(c(layouts, layouts[1]), tweenlength = 1, 
                               statelength = 1, ease = 'cubic-in-out', 
                               nframes = length(igraph_layouts) * 16 + 8)

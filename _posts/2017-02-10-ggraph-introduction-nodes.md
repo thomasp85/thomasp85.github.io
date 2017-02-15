@@ -37,7 +37,7 @@ ggraph(gr, layout = 'kk') +
     geom_point(aes(x=x, y=y))
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-2-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-2-1.png)
 
 The reason this works is that, as discussed in the previous post, layouts return
 a `data.frame` of node positions and metadata and this is used as the default
@@ -45,7 +45,7 @@ plot data:
 
 
 {% highlight r %}
-head(createLayout(gr, layout = 'kk'))
+head(create_layout(gr, layout = 'kk'))
 {% endhighlight %}
 
 
@@ -81,7 +81,7 @@ ggraph(gr, layout = 'kk') +
     geom_node_point()
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-4-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-4-1.png)
 
 sometimes there is a need for addressing the x and y aesthetics, which is still
 possible, for instance if a partition layout should be inverted:
@@ -94,7 +94,7 @@ ggraph(gr, layout = 'partition') +
     geom_node_tile(aes(y = -y, fill = depth))
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-5-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-5-1.png)
 
 of course this could also be accomplished by reversing the y-axis using 
 `scale_y_reverse()` so this is just to illustrate that the defaults are easily
@@ -112,7 +112,7 @@ ggraph(gr, layout = 'dendrogram', circular = TRUE) +
     coord_fixed()
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-6-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-6-1.png)
 
 In the above plot only the terminal nodes are drawn by filtering on the logical
 leaf column provided by the dendrogram layout.
@@ -143,7 +143,7 @@ ggraph(gr, layout = 'treemap', weight = 'size') +
     geom_node_tile(aes(fill = depth))
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-7-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-7-1.png)
 
 all spatial node geoms will be center-based, meaning that the x and y value of
 the layout will refer to the center of the layout and not e.g. the bottom-left
@@ -157,7 +157,7 @@ l + geom_node_arc_bar(aes(fill = depth)) +
     coord_fixed()
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-8-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-8-1.png)
 
 
 {% highlight r %}
@@ -167,7 +167,7 @@ l + geom_edge_diagonal(aes(width = ..index.., alpha = ..index..), lineend = 'rou
     coord_fixed()
 {% endhighlight %}
 
-![center](/assets/images/2017-02-06-ggraph-introduction-nodes/unnamed-chunk-9-1.png)
+![center](/assets/images/2017-02-10-ggraph-introduction-nodes/unnamed-chunk-9-1.png)
 
 More node geoms are sure to appear in `ggraph` with time but they will generally
 be quite easily comprehensible due to their strong assemblance to the standard
