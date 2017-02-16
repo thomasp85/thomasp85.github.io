@@ -5,7 +5,7 @@ tags: [R, ggraph, visualization]
 categories: [R]
 large_thumb: true
 img:
-    thumb: "/assets/images/edge_meme.jpg"
+    thumb: "/assets/images/edge_meme_wide.jpg"
 ---
 
 ```{r, include=FALSE}
@@ -59,7 +59,7 @@ If the natural `ggplot2` equivalent to nodes is `geom_point()`, then surely the
 equivalent to edges must be `geom_segment()`? Well, sort of, but there's a bit 
 more to it than that.
 
-![One does not simply draw a line between two nodes](/assets/images/edge_meme.jpg)
+![One does not simply draw a line between two nodes](/assets/images/edge_meme_wide.jpg)
 
 While nodes are the sensible, mature, and predictably geoms, edges are the edgy 
 (sorry), younger cousins that pushes the boundaries. To put it bluntly: 
