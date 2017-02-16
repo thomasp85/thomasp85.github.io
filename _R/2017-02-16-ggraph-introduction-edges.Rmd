@@ -5,7 +5,7 @@ tags: [R, ggraph, visualization]
 categories: [R]
 large_thumb: true
 img:
-    thumb: "/assets/images/ggraph_logo.png"
+    thumb: "/assets/images/edge_meme.jpg"
 ---
 
 ```{r, include=FALSE}
