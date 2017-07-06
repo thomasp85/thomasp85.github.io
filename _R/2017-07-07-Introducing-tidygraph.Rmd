@@ -44,7 +44,7 @@ knitr::opts_chunk$set(
 )
 Sys.setenv(LANG = "en")
 
-set.seed(24)
+set.seed(20)
 ```
 
 I'm very pleased to announce that my new package `tidygraph` is now 

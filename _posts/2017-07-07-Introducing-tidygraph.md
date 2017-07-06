@@ -512,7 +512,28 @@ play_geometry(50, 0.25) %>%
 
 
 {% highlight text %}
-#> Error in mutate_impl(.data, dots): Evaluation error: invalid class "dsTMatrix" object: Not a valid 'Mnumeric' class object.
+#> # A tbl_graph: 50 nodes and 227 edges
+#> #
+#> # An undirected simple graph with 1 component
+#> #
+#> # Node Data: 50 x 3 (active)
+#>            x          y order
+#>        <dbl>      <dbl> <int>
+#> 1 0.01637861 0.11280499    49
+#> 2 0.01721270 0.19181732    50
+#> 3 0.02015524 0.74802650    46
+#> 4 0.04361792 0.09377818    48
+#> 5 0.04622344 0.95686281    47
+#> 6 0.07677761 0.46011354    41
+#> # ... with 44 more rows
+#> #
+#> # Edge Data: 227 x 2
+#>    from    to
+#>   <int> <int>
+#> 1     1     2
+#> 2     1     4
+#> 3     2     4
+#> # ... with 224 more rows
 {% endhighlight %}
 
 ### Local measures
@@ -540,11 +561,11 @@ play_smallworld(1, 100, 3, 0.05) %>%
 #>   weighted_degree
 #>             <dbl>
 #> 1       1.0000000
-#> 2       1.1951220
-#> 3       1.0000000
-#> 4       0.7812500
-#> 5       0.9473684
-#> 6       0.9729730
+#> 2       1.0000000
+#> 3       0.6666667
+#> 4       1.2549020
+#> 5       1.0000000
+#> 6       1.0000000
 #> # ... with 94 more rows
 #> #
 #> # Edge Data: 300 x 2
@@ -552,7 +573,7 @@ play_smallworld(1, 100, 3, 0.05) %>%
 #>   <int> <int>
 #> 1     1     2
 #> 2     2     3
-#> 3     3    46
+#> 3     4    97
 #> # ... with 297 more rows
 {% endhighlight %}
 
@@ -581,28 +602,28 @@ play_islands(5, 10, 0.7, 3) %>%
 
 
 {% highlight text %}
-#> # A tbl_graph: 50 nodes and 188 edges
+#> # A tbl_graph: 50 nodes and 183 edges
 #> #
 #> # An undirected simple graph with 1 component
 #> #
 #> # Node Data: 50 x 1 (active)
 #>   norm_adhesion
 #>           <dbl>
-#> 1          1.75
-#> 2          1.50
-#> 3          1.50
-#> 4          1.75
+#> 1          2.00
+#> 2          1.75
+#> 3          1.25
+#> 4          1.25
 #> 5          1.75
-#> 6          2.00
+#> 6          1.75
 #> # ... with 44 more rows
 #> #
-#> # Edge Data: 188 x 2
+#> # Edge Data: 183 x 2
 #>    from    to
 #>   <int> <int>
 #> 1     1     2
-#> 2     1     3
+#> 2     2     3
 #> 3     1     4
-#> # ... with 185 more rows
+#> # ... with 180 more rows
 {% endhighlight %}
 
 ## Mapping over nodes
@@ -670,10 +691,10 @@ play_smallworld(1, 100, 3, 0.05) %>%
 #> # Node Data: 100 x 1 (active)
 #>   neighborhood_edges
 #>                <dbl>
-#> 1                 15
-#> 2                 13
-#> 3                 16
-#> 4                 15
+#> 1                 14
+#> 2                 14
+#> 3                 14
+#> 4                 13
 #> 5                 15
 #> 6                 15
 #> # ... with 94 more rows
@@ -717,28 +738,28 @@ islands
 
 
 {% highlight text %}
-#> # A tbl_graph: 50 nodes and 197 edges
+#> # A tbl_graph: 50 nodes and 208 edges
 #> #
-#> # An undirected multigraph with 1 component
+#> # An undirected simple graph with 1 component
 #> #
 #> # Node Data: 50 x 2 (active)
 #>   group dist_to_center
 #>   <int>          <dbl>
-#> 1     4              0
-#> 2     4              0
-#> 3     4              0
-#> 4     4              0
-#> 5     4              0
-#> 6     4              0
+#> 1     3              1
+#> 2     3              1
+#> 3     3              1
+#> 4     3              1
+#> 5     3              0
+#> 6     3              1
 #> # ... with 44 more rows
 #> #
-#> # Edge Data: 197 x 2
+#> # Edge Data: 208 x 2
 #>    from    to
 #>   <int> <int>
-#> 1     1     3
-#> 2     2     3
-#> 3     1     4
-#> # ... with 194 more rows
+#> 1     1     2
+#> 2     1     3
+#> 3     2     3
+#> # ... with 205 more rows
 {% endhighlight %}
 
 
@@ -758,28 +779,28 @@ islands
 
 
 {% highlight text %}
-#> # A tbl_graph: 50 nodes and 197 edges
+#> # A tbl_graph: 50 nodes and 208 edges
 #> #
-#> # An undirected multigraph with 1 component
+#> # An undirected simple graph with 1 component
 #> #
 #> # Node Data: 50 x 3 (active)
 #>   group dist_to_center exiting_group
 #>   <int>          <dbl>         <dbl>
-#> 1     4              0            12
-#> 2     4              0            12
-#> 3     4              0            12
-#> 4     4              0            12
-#> 5     4              0            12
-#> 6     4              0            12
+#> 1     3              1            12
+#> 2     3              1            12
+#> 3     3              1            12
+#> 4     3              1            12
+#> 5     3              0            12
+#> 6     3              1            12
 #> # ... with 44 more rows
 #> #
-#> # Edge Data: 197 x 2
+#> # Edge Data: 208 x 2
 #>    from    to
 #>   <int> <int>
-#> 1     1     3
-#> 2     2     3
-#> 3     1     4
-#> # ... with 194 more rows
+#> 1     1     2
+#> 2     1     3
+#> 3     2     3
+#> # ... with 205 more rows
 {% endhighlight %}
 
 
@@ -797,28 +818,28 @@ islands
 
 
 {% highlight text %}
-#> # A tbl_graph: 50 nodes and 197 edges
+#> # A tbl_graph: 50 nodes and 208 edges
 #> #
-#> # An undirected multigraph with 1 component
+#> # An undirected simple graph with 1 component
 #> #
 #> # Node Data: 50 x 3 (active)
 #>   group dist_to_center exiting_group
 #>   <int>          <dbl>         <dbl>
-#> 1     4              0            12
-#> 2     4              0            12
-#> 3     4              0            12
-#> 4     4              0            12
-#> 5     4              0            12
-#> 6     4              0            12
+#> 1     3              1            12
+#> 2     3              1            12
+#> 3     3              1            12
+#> 4     3              1            12
+#> 5     3              0            12
+#> 6     3              1            12
 #> # ... with 44 more rows
 #> #
-#> # Edge Data: 197 x 3
+#> # Edge Data: 208 x 3
 #>    from    to edge_centrality
 #>   <int> <int>           <dbl>
-#> 1     1     3     0.005582168
-#> 2     2     3     0.005376686
-#> 3     1     4     0.005261344
-#> # ... with 194 more rows
+#> 1     1     2     0.004220249
+#> 2     1     3     0.004490694
+#> 3     2     3     0.003728624
+#> # ... with 205 more rows
 {% endhighlight %}
 
 As can be seen, the morph syntax both handles multiple graphs, collapsed nodes
