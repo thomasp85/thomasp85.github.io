@@ -83,7 +83,7 @@ app$on('request', function(arg_list, ...) {
 As can be seen the code ends up being a bit more verbose, but the argument list
 will be much more predictable.
 
-### Embrassing snake_case *BREAKING*
+### Embracing snake_case *BREAKING*
 When I first started developing `fiery` I was young and confused 
 (😜). Bottom line I don't think my 
 naming scheme was very elegant. While consistent (snake_case for methods and
