@@ -32,7 +32,7 @@ adopted by `fiery` as the interface for working with HTTP messaging. I have been
 a bit torn on whether to build `reqres` into `fiery` or simply let 
 [`routr`](https://github.com/thomasp85/routr) use it internally, but in the end
 the benefits of a more powerful interface to HTTP requests and responses far
-outweighted the added dependency and breaking change.
+outweighed the added dependency and breaking change.
 
 The change means that everywhere a request object is handed on to an event 
 handler (e.g. handlers listening to the `request` event) it is no longer passing
@@ -41,10 +41,10 @@ to simply extract the rook environment from the `Request` object using the
 `origin` field (this, of course, will not allow you to experience the joy of 
 `reqres`).
 
-The change to `reqres` also brings other, smaller, changes to the codebase. 
+The change to `reqres` also brings other, smaller, changes to the code base. 
 `header` event handlers are now expected to return either `TRUE` or `FALSE` to
 indicate whether to proceed or terminate, respectively. Prior to v1.0 they were
-expected to return either `NULL` or a rook complient list response, but as 
+expected to return either `NULL` or a rook complaint list response, but as 
 responses are now linked to requests, returning them does not make sense. In the
 same vein, the return values of `request` event handlers are ignored and the 
 response is not passed to `after-request` event handlers as the response can be 
@@ -97,7 +97,7 @@ plugins to expose an `on_attach()` method rather than an `onAttach()` method.
 ### Keeping the event cycle in non-blocking mode
 `fiery` supports running the server in both a blocking and a non-blocking way 
 (that is, whether control should be returned to the user after the server is 
-started, or not). Before v1.0 the two modes were not equal in their lifecycle 
+started, or not). Before v1.0 the two modes were not equal in their life cycle 
 events as only the blocking server had support for `cycle-start` and `cycle-end`
 events as well as handling of timed, delayed, and async evaluation. This has
 changed and the lifetime of an app running in the two different modes are now
@@ -109,7 +109,7 @@ of not allowing to stop a server as part of a cycle event (Bug report here:
 <https://github.com/rstudio/httpuv/issues/78>). Parallel to the refresh rate of
 a blocking server, the refresh rate of a non-blocking server can be set using 
 the `refresh_rate_nb` field. By default it is longer than that of a blocking 
-server, to give the R process more room to recieve instructions from the 
+server, to give the R process more room to receive instructions from the 
 console.
 
 ### Mounting a server
@@ -129,7 +129,7 @@ with the best setup. Still, the current iteration of the documentation is a vast
 improvement, compared to the previous release. Notable changes include separate
 entries for documentation of events and plugins.
 
-### Grab back
+### Grab bag
 The host and port can now be set during construction using the `host` and `port`
 arguments in `Fire$new()`. `Fire` objects now has a print method, making them
 much nicer to look at. The host, port, and root is now advertised when a server
@@ -237,8 +237,8 @@ app$ignite(block = FALSE)
 ## Model loaded
 {% endhighlight %}
 
-As can be seen, `routr` makes the request logic nice and compartmentalised, 
-while `reqres` makes it easy to work with HTTP messages. What is less aparent is
+As can be seen, `routr` makes the request logic nice and compartmentalized, 
+while `reqres` makes it easy to work with HTTP messages. What is less apparent is
 the work that `fiery` is doing underneath, but that is exactly the point. While
 it is possible to use a lot of the advanced features in `fiery`, you don't have 
 to - often it is as simple as building up a router and attaching it to a `fiery`
@@ -246,8 +246,8 @@ instance. Even WebSocket messaging can be offloaded to the router if you so
 wish.
 
 Of course a simple prediction service is easy to build up in most frameworks - 
-it is the To-Do app of data science webserver tutorials. I hope to get the time 
-to create some more fully fletched example apps soon. Next up in the `fiery`
+it is the To-Do app of data science web server tutorials. I hope to get the time 
+to create some more fully fledged example apps soon. Next up in the `fiery`
 stack pipeline is getting `routr` on CRAN as well and then begin working on some
 of the plugins that will facilitate security, authentication, data storage, etc. 
 
