@@ -45,7 +45,7 @@ predictions, this sentiment simply doesn't cut it for several reasons:
   infallibility of your algorithm and if you cannot explain how your model 
   reaches a prediction they are likely to ignore your predictions. A prime 
   example is a system predicting medical conditions requiring drastic surgery. 
-  In order for a doctor to follow the predictions he must have knowledge of 
+  In order for doctors to follow the predictions they must have knowledge of 
   which factors weighted in.
 - Laws and regulations are cropping up to restrict the blind use of complex
   models. Next year all EU countries must adhere to a new regulation requiring
